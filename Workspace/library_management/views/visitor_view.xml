@@ -1,0 +1,43 @@
+<odoo>
+        <!-- Starting of UI -->
+        <!-- Tree View -->
+        <record id="tree_visitor_view" model="ir.ui.view">
+            <field name="name">visitor.visitor.tree</field>
+            <field name="model">visitor.visitor</field>
+            <field name="arch" type="xml">
+                <tree string="Visitor">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record id="form_visitor_view" model="ir.ui.view">
+            <field name="name">visitor.visitor.form</field>
+            <field name="model">visitor.visitor</field>
+            <field name="arch" type="xml">
+                <form string="Visitor">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Action -->
+        <record id="action_visitor" model="ir.actions.act_window">
+            <field name="name">Visitor</field>
+            <field name="res_model">visitor.visitor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menubar -->
+        <menuitem id = "menu_visitor"
+        name = "Visitor"
+        action = "action_visitor"
+        parent = "menu_library_master"
+        sequence = "2"/>
+</odoo>

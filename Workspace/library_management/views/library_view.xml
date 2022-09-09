@@ -1,0 +1,48 @@
+<odoo>
+        <!-- Starting of UI -->
+        <!-- Tree View -->
+        <record id="tree_library_view" model="ir.ui.view">
+            <field name="name">library.management.tree</field>
+            <field name="model">library.management</field>
+            <field name="arch" type="xml">
+                <tree string="Library">
+                    <field name="name"/>
+                    <field name="property_type"/>
+                    <field name="librarian_ids"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form View -->
+        <record id="form_library_view" model="ir.ui.view">
+            <field name="name">library.management.form</field>
+            <field name="model">library.management</field>
+            <field name="arch" type="xml">
+                <form string="Library">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="property_type"/>
+                            <field name="librarian_ids" widget = "many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Action -->
+        <record id="action_library" model="ir.actions.act_window">
+            <field name="name">Library</field>
+            <field name="res_model">library.management</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menubar -->
+        <menuitem id= "menu_library_master" name = "Library Management" sequence = "0"/>
+        <menuitem id = "menu_library_main"
+        name = "Library Management"
+        action = "action_library"
+        parent = "menu_library_master"
+        sequence = "0"/>
+</odoo>
